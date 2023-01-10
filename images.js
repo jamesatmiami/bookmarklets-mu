@@ -6,6 +6,7 @@ import { Bookmarklet }  from './Bookmarklet';
 import { InfoObject }   from './InfoObject';
 import { getCssClass }  from './utils/constants';
 import { addPolyfills } from './utils/utils';
+import 'bootstrap';
 
 (function () {
   initImages().run();

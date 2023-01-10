@@ -33,5 +33,10 @@
     "build": "webpack -p && gulp && npm run copy:css",
     "debug": "webpack    && gulp && npm run copy:css",
     "lint": "eslint *.js utils/*.js"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "jquery": "^3.6.3",
+    "popper.js": "^1.16.1"
   }
 }

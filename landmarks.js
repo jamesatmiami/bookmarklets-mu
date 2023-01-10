@@ -7,6 +7,7 @@ import { InfoObject }   from './InfoObject';
 import { getCssClass }  from './utils/constants';
 import { isDescendantOf } from './utils/dom';
 import { addPolyfills } from './utils/utils';
+import 'bootstrap';
 
 (function () {
   initLandmarks().run();
