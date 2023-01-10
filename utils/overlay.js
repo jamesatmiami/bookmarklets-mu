@@ -28,7 +28,7 @@ function createOverlay (tgt, rect, cname) {
   node.style.borderColor = tgt.color;
   node.style.zIndex = zIndex;
 
-  let label = document.createElement("a");
+  let label = document.createElement("div");
   label.setAttribute("class", 'oaa-overlay-label');
   label.style.backgroundColor = tgt.color;
   label.innerHTML = tgt.label;
