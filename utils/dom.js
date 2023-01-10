@@ -116,7 +116,7 @@ function addNodes (params) {
         let overlayNode = createOverlay(target, boundingRect, cssClass);
         if (dndFlag) addDragAndDrop(overlayNode);
         let labelNode = overlayNode.firstChild;
-        labelNode.setAttribute('data-bs-toggle', "popover");
+        labelNode.setAttribute('data-bs-toggle', "tooltip");
         labelNode.setAttribute('data-bs-content', formatInfo(info));
         labelNode.title = formatInfo(info).split('\n')[0];
 
