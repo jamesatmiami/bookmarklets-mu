@@ -4,11 +4,9 @@
 
   ```$ cd <parent-directory>```
 
-### Create a working copy of the ```bookmarklets-library``` repository
+### Create a working copy of the ```bookmarklets-mu``` repository
 
-  ```$ git clone --recursive https://github.com/oaa-tools/bookmarklets-library.git```
-
-Note: The repo has a submodule, so be sure to use the ```--recursive``` option.
+  ```$ git clone https://github.com/jamesatmiami/bookmarklets-mu.git```
 
 ### Change directory to the working copy
 
@@ -19,14 +17,6 @@ Note: The repo has a submodule, so be sure to use the ```--recursive``` option.
   ```$ npm install```
 
 This command follows the directives in the ```package.json``` file.
-
-### Checkout the ```master``` branch of the ```build``` submodule
-
-  ```$ cd build```
-
-  ```$ git checkout master```
-
-Note: If you don't explicitly checkout the ```master``` branch of the submodule, it will remain in a 'detached HEAD' state, which is not what you want if you plan to separately commit and push changes in the submodule.
 
 ### Start coding...
 
