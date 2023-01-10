@@ -14,6 +14,12 @@ module.exports = {
     filename: "[name].js"
   },
   module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
     preLoaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: "eslint-loader" }
     ],
