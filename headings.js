@@ -21,7 +21,8 @@ function initHeadings () {
     {selector: "h3", color: "purple", label: "h3"},
     {selector: "h4", color: "green",  label: "h4"},
     {selector: "h5", color: "gray",   label: "h5"},
-    {selector: "h6", color: "brown",  label: "h6"}
+    {selector: "h6", color: "brown",  label: "h6"},
+    {selector: "[role=heading][aria-level=1]", color: "navy", label: "h1"}
   ];
 
   let selectors = targetList.map(function (tgt) {return tgt.selector;}).join(', ');

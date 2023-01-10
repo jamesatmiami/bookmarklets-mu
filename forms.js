@@ -25,9 +25,9 @@ function initForms () {
     {selector: "select",   color: "green",  label: "select"},
     {selector: "textarea", color: "brown",  label: "textarea"},
     {selector: "[role=combobox]",color: "navy",label: "combobox"}, 
-    {selector: "[role=button]", color: "purple", label: "button" },
-    { selector: "[role=textbox]", color: "navy", label: "input" }, 
-    { selector: "[role=checkbox]", color: "navy", label: "input" }];
+    {selector: "[role=button]", color: "purple", label: "button"},
+    {selector: "[role=textbox]", color: "navy", label: "input"}, 
+    {selector: "[role=checkbox]", color: "navy", label: "input"}];
 
   let selectors = targetList.map(function (tgt) {return '<li>' + tgt.selector + '</li>';}).join('');
 
