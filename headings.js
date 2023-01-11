@@ -7,7 +7,6 @@ import { InfoObject }   from './InfoObject';
 import { getCssClass }  from './utils/constants';
 import { addPolyfills } from './utils/utils';
 import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 (function () {
   initHeadings().run();
