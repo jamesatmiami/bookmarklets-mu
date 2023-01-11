@@ -124,6 +124,9 @@ function addNodes (params) {
         counter += 1;
       }
     });
+    // Initializes tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
   });
 
   return counter;
