@@ -17,7 +17,7 @@ function createOverlay (tgt, rect, cname) {
   const MINHEIGHT = 27;
 
   let node = document.createElement("div");
-  node.setAttribute("class", [cname, 'oaa-element-overlay'].join(' '));
+  node.setAttribute("class", [cname, 'bootstrap-bm', 'oaa-element-overlay'].join(' '));
   node.startLeft = (rect.left + scrollOffsets.x) + "px";
   node.startTop  = (rect.top  + scrollOffsets.y) + "px";
 
