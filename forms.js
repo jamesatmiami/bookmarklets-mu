@@ -6,7 +6,8 @@ import { Bookmarklet }  from './Bookmarklet';
 import { InfoObject }   from './InfoObject';
 import { getCssClass }  from './utils/constants';
 import { addPolyfills } from './utils/utils';
-import 'bootstrap';
+import * as bootstrap from 'bootstrap';
+
 
 (function () {
   initForms().run();
