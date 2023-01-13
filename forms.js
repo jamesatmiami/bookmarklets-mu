@@ -7,7 +7,7 @@ import { InfoObject }   from './InfoObject';
 import { getCssClass }  from './utils/constants';
 import { addPolyfills } from './utils/utils';
 import * as bootstrap from 'bootstrap';
-
+window.bootstrap = bootstrap;
 
 (function () {
   initForms().run();
