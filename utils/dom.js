@@ -118,7 +118,6 @@ function addNodes (params) {
         let labelNode = overlayNode.firstChild;
         labelNode.setAttribute('data-bs-toggle', "tooltip");
         labelNode.setAttribute('data-bs-title', formatInfo(info));
-        labelNode.setAttribute('data-bs-custom-class', "bootstrap-bm");
 
         document.body.appendChild(overlayNode);
         counter += 1;
