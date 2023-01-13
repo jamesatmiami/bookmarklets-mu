@@ -119,7 +119,7 @@ function addNodes (params) {
         labelNode.setAttribute('data-bs-toggle', "tooltip");
         labelNode.setAttribute('data-bs-title', formatInfo(info));
 
-        document.body.appendChild(overlayNode);
+        document.body.appendChild(overlayNode, {customClass: "bootstrap-bm"});
         counter += 1;
       }
     });
@@ -127,11 +127,12 @@ function addNodes (params) {
   // Initializes tooltips
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl, "data-bs-custom-class='bootstrap-bm'");
+    return new bootstrap.Tooltip(tooltipTriggerEl);
   });
   console.log("Tooltips initialized");
   return counter;
-}
+  };
+  
 
 /*
 *   removeNodes: Use the unique CSS class name supplied to addNodes
