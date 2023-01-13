@@ -37,7 +37,7 @@ function Bookmarklet (params) {
   // Initializes tooltips
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl, {customClass: "bootstrap-bm"});
+    return new bootstrap.Tooltip(tooltipTriggerEl);
   });
   console.log("Tooltips initialized");
 }
