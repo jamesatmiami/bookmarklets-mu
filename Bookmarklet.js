@@ -34,6 +34,12 @@ function Bookmarklet (params) {
 
   window[globalName] = this;
   logVersionInfo(this.appName);
+  // Initializes tooltips
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl, {customClass: "bootstrap-bm"});
+  });
+  console.log("Tooltips initialized");
 }
 
 Bookmarklet.prototype.run = function () {
@@ -52,12 +58,3 @@ Bookmarklet.prototype.run = function () {
     removeNodes(this.cssClass);
   }
 };
-
-$(function () {
-    // Initializes tooltips
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl, {customClass: "bootstrap-bm"});
-    });
-    console.log("Tooltips initialized");
-});
