@@ -117,8 +117,7 @@ function addNodes (params) {
         if (dndFlag) addDragAndDrop(overlayNode);
         let labelNode = overlayNode.firstChild;
         labelNode.setAttribute('data-bs-toggle', "tooltip");
-        labelNode.setAttribute('data-bs-content', formatInfo(info));
-        labelNode.title = formatInfo(info).split('\n')[0];
+        labelNode.title = formatInfo(info);
 
         document.body.appendChild(overlayNode);
         counter += 1;
