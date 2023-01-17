@@ -14,10 +14,10 @@ window.bootstrap = bootstrap;
 
 (function () {
   initForms().run();
+  // Initializes tooltips and assigns them a parent container.
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
   const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {container: '#bs-bm'}));
   $('[data-bs-toggle="tooltip"]').tooltip({container: '#bs-bm'});
-
 
 })();
 
