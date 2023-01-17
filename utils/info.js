@@ -49,28 +49,28 @@ function formatInfo (info) {
       role = info.role,
       props = info.props;
 
-  value += '=== ' + title + ' ===';
+  value += '<b>=== ' + title + ' ===</b>';
 
-  if (element) value += '\nELEMENT: ' + element;
+  if (element) value += '<br>ELEMENT: ' + element;
 
   if (grpLabels && grpLabels.length) {
     // array starts with innermost label, so process from the end
     for (let i = grpLabels.length - 1; i >= 0; i--) {
-      value += '\nGRP. LABEL: ' + grpLabels[i].name + '\nFROM: ' + grpLabels[i].source;
+      value += '<br>GRP. LABEL: ' + grpLabels[i].name + '<br>FROM: ' + grpLabels[i].source;
     }
   }
 
   if (accName) {
-    value += '\nACC. NAME: ' + accName.name + '\nFROM: ' + accName.source;
+    value += '<br>ACC. NAME: ' + accName.name + '<br>FROM: ' + accName.source;
   }
 
   if (accDesc) {
-    value += '\nACC. DESC: ' + accDesc.name + '\nFROM: ' + accDesc.source;
+    value += '<br>ACC. DESC: ' + accDesc.name + '<br>FROM: ' + accDesc.source;
   }
 
-  if (role) value += '\nROLE: ' + role;
+  if (role) value += '<br>ROLE: ' + role;
 
-  if (props) value += '\nPROPERTIES: ' + props;
+  if (props) value += '<br>PROPERTIES: ' + props;
 
   return value;
 }
