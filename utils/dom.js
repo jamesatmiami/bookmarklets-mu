@@ -126,6 +126,7 @@ function addNodes (params) {
         labelNode.setAttribute('data-bs-html', "true");
         
         labelNode.setAttribute('data-bs-title', formatInfo(info));
+        labelNode.innerHTML = "<a href='#' data-bs-toggle='popover' data-bs-container='bs-bm' data-bs-title='" + info.title + "' data-bs-content='" + formatInfo(info) + "'>" + labelNode.innerHTML + "</a>";
 
         $("#bs-bm").append(overlayNode);
         counter += 1;
