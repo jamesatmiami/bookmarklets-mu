@@ -5,6 +5,9 @@
 import { getGlobalName, getTitle, getVersion } from './utils/constants';
 import { addNodes, removeNodes } from './utils/dom';
 import { MessageDialog } from './utils/dialog';
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 export { Bookmarklet };
