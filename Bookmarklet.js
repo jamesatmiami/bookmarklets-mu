@@ -56,13 +56,9 @@ Bookmarklet.prototype.run = function () {
   else {
     removeNodes(this.cssClass);
   }
- 
-
 };
 
 $(function () {
-  $('.oaa-overlay-label').wrapInner("<a href='#'></a>");
-
    // Initializes tooltips
    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
