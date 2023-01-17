@@ -65,3 +65,7 @@ div.oaa-message-dialog > div ul {
 div.oaa-message-dialog > div ul li {
   margin-top     : 0;
 }
+
+.tooltip {
+  z-index: 100100;
+}
