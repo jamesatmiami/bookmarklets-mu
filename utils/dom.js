@@ -100,6 +100,12 @@ function addNodes (params) {
       dndFlag = params.dndFlag;
   let counter = 0;
 
+  let el = document.createElement('div');
+  el.setAttribute('class', 'bootstrap-bm');
+  el.setAttribute('id', 'bs-bm');
+  document.body.appendChild(el);
+
+
   targetList.forEach(function (target) {
     // Collect elements based on selector defined for target
     let elements = document.querySelectorAll(target.selector);
@@ -121,7 +127,7 @@ function addNodes (params) {
         
         labelNode.setAttribute('data-bs-title', formatInfo(info));
 
-        document.body.appendChild(overlayNode);
+        $(".bootstrap-bm").append(overlayNode);
         counter += 1;
       }
     });
