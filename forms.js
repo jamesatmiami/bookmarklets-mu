@@ -7,8 +7,7 @@ import { InfoObject }   from './InfoObject';
 import { getCssClass }  from './utils/constants';
 import { addPolyfills } from './utils/utils';
 import $ from 'jquery';
-window.jQuery = $;
-window.$ = $;
+window.jQuery = window.$ = require('jquery');
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 
