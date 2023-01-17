@@ -127,7 +127,7 @@ function addNodes (params) {
         
         labelNode.setAttribute('data-bs-title', formatInfo(info));
 
-        $(".bootstrap-bm").append(overlayNode);
+        $("#bs-bm").append(overlayNode);
         counter += 1;
       }
     });
