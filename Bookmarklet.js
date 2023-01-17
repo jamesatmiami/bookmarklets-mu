@@ -5,6 +5,8 @@
 import { getGlobalName, getTitle, getVersion } from './utils/constants';
 import { addNodes, removeNodes } from './utils/dom';
 import { MessageDialog } from './utils/dialog';
+import * as bootstrap from 'bootstrap';
+window.bootstrap = bootstrap;
 export { Bookmarklet };
 
 /* eslint no-console: 0 */
@@ -56,5 +58,5 @@ Bookmarklet.prototype.run = function () {
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl, {selector: '[data-bs-toggle="tooltip"]'});
     });
-  console.log("Tooltips initialized");
+
 };
