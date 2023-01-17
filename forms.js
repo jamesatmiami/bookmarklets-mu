@@ -19,6 +19,10 @@ window.bootstrap = bootstrap;
   const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {container: '#bs-bm'}));
   $('[data-bs-toggle="tooltip"]').tooltip({container: '#bs-bm'});
 
+  // Initializes popovers
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
 })();
 
 function initForms () {
