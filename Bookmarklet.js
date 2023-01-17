@@ -53,10 +53,17 @@ Bookmarklet.prototype.run = function () {
   else {
     removeNodes(this.cssClass);
   }
-  // Initializes tooltips
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl, {selector: '[data-bs-toggle="tooltip"]'});
-    });
+ 
 
 };
+
+$(function () {
+  $('.oaa-overlay-label').wrapInner("<a href='#'></a>");
+
+   // Initializes tooltips
+   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    console.log(tooltipTriggerEl);
+    return new bootstrap.Tooltip(tooltipTriggerEl, {selector: '[data-bs-toggle="tooltip"]'});
+   });
+});
