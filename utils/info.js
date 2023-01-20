@@ -61,29 +61,29 @@ function formatInfo(info) {
   if (title.length) {
 
 
-    value += '<b>=== ' + title + ' ===</b>';
+    value += '<b>=== ' + title + ' ===</b>\n';
 
-    if (element) value += groupItemS + '<br>ELEMENT: ' + element + groupItemE;
+    if (element) value += groupItemS + 'ELEMENT: ' + element + groupItemE;
 
 
     if (grpLabels && grpLabels.length) {
       // array starts with innermost label, so process from the end
       for (let i = grpLabels.length - 1; i >= 0; i--) {
-        value += groupItemS + '<br>GRP. LABEL: ' + grpLabels[i].name + groupItemE + groupItemS + '<br>FROM: ' + grpLabels[i].source + groupItemE;
+        value += groupItemS + 'GRP. LABEL: ' + grpLabels[i].name + groupItemE + groupItemS + 'FROM: ' + grpLabels[i].source + groupItemE;
       }
     }
 
     if (accName) {
-      value += groupItemS + '<br>ACC. NAME: ' + accName.name + groupItemE + groupItemS + '<br>FROM: ' + accName.source + groupItemE;
+      value += groupItemS + 'ACC. NAME: ' + accName.name + groupItemE + groupItemS + 'FROM: ' + accName.source + groupItemE;
     }
 
     if (accDesc) {
-      value += groupItemS + '<br>ACC. DESC: ' + accDesc.name + groupItemE + groupItemS + '<br>FROM: ' + accDesc.source + groupItemE;
+      value += groupItemS + 'ACC. DESC: ' + accDesc.name + groupItemE + groupItemS + 'FROM: ' + accDesc.source + groupItemE;
     }
 
-    if (role) value += groupItemS + '<br>ROLE: ' + role + groupItemE;
+    if (role) value += groupItemS + 'ROLE: ' + role + groupItemE;
 
-    if (props) value += groupItemS + '<br>PROPERTIES: ' + props + groupItemE;
+    if (props) value += groupItemS + 'PROPERTIES: ' + props + groupItemE;
 
     value = "<ul class='list-group list-group-flush'>" + value + "</ul>";
 
