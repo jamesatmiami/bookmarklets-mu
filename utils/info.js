@@ -49,7 +49,7 @@ function formatInfo (info) {
       role = info.role,
       props = info.props;
 
-  value += '<b>=== ' + title + ' ===</b>';
+  value += '<b>=== ' + title + ' ===<b>';
 
   if (element) value += '<br>ELEMENT: ' + element;
 
