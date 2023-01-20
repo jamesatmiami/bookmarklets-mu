@@ -145,6 +145,6 @@ function removeNodes (cssClass) {
   let selector = "div." + cssClass;
   let elements = document.querySelectorAll(selector);
   Array.prototype.forEach.call(elements, function (element) {
-    document.body.removeChild(element);
+    document.querySelector("#bs-bm").removeChild(element);
   });
 }
