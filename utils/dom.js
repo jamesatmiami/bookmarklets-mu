@@ -100,11 +100,13 @@ function addNodes (params) {
       dndFlag = params.dndFlag;
   let counter = 0;
 
-  let el = document.createElement('div');
-  el.setAttribute('class', 'bootstrap-bm');
-  el.setAttribute('id', 'bs-bm');
-  document.body.appendChild(el);
-
+  // Checks if node parent container exists already, and creates it if not.
+  if ($("#bs-bm").length) {
+    let el = document.createElement('div');
+    el.setAttribute('class', 'bootstrap-bm');
+    el.setAttribute('id', 'bs-bm');
+    document.body.appendChild(el);
+  }
 
   targetList.forEach(function (target) {
     // Collect elements based on selector defined for target
@@ -124,9 +126,9 @@ function addNodes (params) {
         let labelNode = overlayNode.firstChild;
         labelNode.setAttribute('data-bs-toggle', "tooltip");
         labelNode.setAttribute('data-bs-html', "true");
-        
+
         labelNode.setAttribute('data-bs-title', formatInfo(info));
-        labelNode.innerHTML = "<a href='#' data-bs-toggle='popover' data-bs-container='bs-bm' data-bs-title='" + info.title + "' data-bs-content='" + formatInfo(info) + "'>" + labelNode.innerHTML + "</a>";
+        labelNode.innerHTML = "<a href='#' data-bs-toggle='popover' data-bs-html='true' data-bs-container='bs-bm' data-bs-title='" + info.title + "' data-bs-content='" + formatInfo(info) + "'>" + labelNode.innerHTML + "</a>";
 
         $("#bs-bm").append(overlayNode);
         counter += 1;
