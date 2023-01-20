@@ -1,17 +1,23 @@
 /*
-*   info.js: Function for displaying information on highlighted elements
-*/
+ *   info.js: Function for displaying information on highlighted elements
+ */
 
-import { getAttributeValue, isLabelableElement } from './namefrom';
-export { getElementInfo, formatInfo };
+import {
+  getAttributeValue,
+  isLabelableElement
+} from './namefrom';
+export {
+  getElementInfo,
+  formatInfo
+};
 
 /*
-*   getElementInfo: Extract tagName and other attribute information
-*   based on tagName and return as formatted string.
-*/
-function getElementInfo (element) {
+ *   getElementInfo: Extract tagName and other attribute information
+ *   based on tagName and return as formatted string.
+ */
+function getElementInfo(element) {
   let tagName = element.tagName.toLowerCase(),
-      elementInfo = tagName;
+    elementInfo = tagName;
 
   if (tagName === 'input') {
     let type = element.type;
@@ -37,40 +43,51 @@ function getElementInfo (element) {
 }
 
 /*
-*   formatInfo: Convert info properties into a string with line breaks.
-*/
-function formatInfo (info) {
+ *   formatInfo: Convert info properties into a string with line breaks.
+ */
+function formatInfo(info) {
   let value = '';
   let title = info.title,
-      element = info.element,
-      grpLabels = info.grpLabels,
-      accName = info.accName,
-      accDesc = info.accDesc,
-      role = info.role,
-      props = info.props;
+    element = info.element,
+    grpLabels = info.grpLabels,
+    accName = info.accName,
+    accDesc = info.accDesc,
+    role = info.role,
+    props = info.props;
 
-  value += '<b>=== ' + title + ' ===<b>';
+  let groupItemS = "<li class='list-group-item'>";
+  let groupItemE = "</li>";
 
-  if (element) value += '<br>ELEMENT: ' + element;
+  if (title.length) {
 
-  if (grpLabels && grpLabels.length) {
-    // array starts with innermost label, so process from the end
-    for (let i = grpLabels.length - 1; i >= 0; i--) {
-      value += '<br>GRP. LABEL: ' + grpLabels[i].name + '<br>FROM: ' + grpLabels[i].source;
+
+    value += '<b>=== ' + title + ' ===</b>';
+
+    if (element) value += groupItemS + '<br>ELEMENT: ' + element + groupItemE;
+
+
+    if (grpLabels && grpLabels.length) {
+      // array starts with innermost label, so process from the end
+      for (let i = grpLabels.length - 1; i >= 0; i--) {
+        value += groupItemS + '<br>GRP. LABEL: ' + grpLabels[i].name + groupItemE + groupItemS + '<br>FROM: ' + grpLabels[i].source + groupItemE;
+      }
     }
+
+    if (accName) {
+      value += groupItemS + '<br>ACC. NAME: ' + accName.name + groupItemE + groupItemS + '<br>FROM: ' + accName.source + groupItemE;
+    }
+
+    if (accDesc) {
+      value += groupItemS + '<br>ACC. DESC: ' + accDesc.name + groupItemE + groupItemS + '<br>FROM: ' + accDesc.source + groupItemE;
+    }
+
+    if (role) value += groupItemS + '<br>ROLE: ' + role + groupItemE;
+
+    if (props) value += groupItemS + '<br>PROPERTIES: ' + props + groupItemE;
+
+    value = "<ul class='list-group list-group-flush'>" + value + "</ul>";
+
+
+    return value;
   }
-
-  if (accName) {
-    value += '<br>ACC. NAME: ' + accName.name + '<br>FROM: ' + accName.source;
-  }
-
-  if (accDesc) {
-    value += '<br>ACC. DESC: ' + accDesc.name + '<br>FROM: ' + accDesc.source;
-  }
-
-  if (role) value += '<br>ROLE: ' + role;
-
-  if (props) value += '<br>PROPERTIES: ' + props;
-
-  return value;
 }
