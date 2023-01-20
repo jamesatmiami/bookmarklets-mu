@@ -59,9 +59,7 @@ function formatInfo(info) {
   let groupItemE = "</li>";
 
   if (title.length) {
-
-
-    value += '<b>=== ' + title + ' ===</b>\n';
+    value += '<b>=== ' + title + ' ===</b><br>';
 
     if (element) value += groupItemS + 'ELEMENT: ' + element + groupItemE;
 
@@ -86,7 +84,8 @@ function formatInfo(info) {
     if (props) value += groupItemS + 'PROPERTIES: ' + props + groupItemE;
 
     value = "<ul class='list-group list-group-flush'>" + value + "</ul>";
-
+    console.log(value);
+    
 
     return value;
   }
