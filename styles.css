@@ -9,10 +9,14 @@ div.oaa-element-overlay {
 div.oaa-element-overlay > div {
   float          : right;
   padding        : 1px 1px 4px 4px;
-  color          : white;
-  font-family    : arial, helvetica, sans-serif;
-  font-size      : 15px;
+  color          : white !important;
+  font-family    : arial, helvetica, sans-serif !important;
+  font-size      : 15px !important;
   pointer-events : auto;
+}
+
+div.oaa-element-overlay > a {
+  text-decoration: none !important;
 }
 
 div.oaa-element-overlay > div:hover {
