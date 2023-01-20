@@ -101,7 +101,7 @@ function addNodes (params) {
   let counter = 0;
 
   // Checks if node parent container exists already, and creates it if not.
-  if ($("#bs-bm").length) {
+  if (!($("#bs-bm").length)) {
     let el = document.createElement('div');
     el.setAttribute('class', 'bootstrap-bm');
     el.setAttribute('id', 'bs-bm');
