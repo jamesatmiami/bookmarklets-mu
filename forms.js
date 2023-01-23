@@ -19,7 +19,7 @@ window.bootstrap = bootstrap;
 
   // Initializes popovers
   const popoverTriggerList = document.querySelectorAll('#bs-bm [data-bs-toggle="popover"]');
-  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {container: '#bs-bm'}));
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {container: '#bs-bm', sanitize: false}));
 
 })();
 

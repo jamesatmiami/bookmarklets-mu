@@ -55,7 +55,7 @@ function formatInfo(info) {
     role = info.role,
     props = info.props;
 
-  let groupItemS = "<li class='list-group-item'>";
+  let groupItemS = "<li class=list-group-item>";
   let groupItemE = "</li>";
 
   if (title.length) {
@@ -83,7 +83,7 @@ function formatInfo(info) {
 
     if (props) value += groupItemS + 'PROPERTIES: ' + props + groupItemE;
 
-    value = "<ul class='list-group list-group-flush'>" + value + "</ul>";
+    value = "<ul class=list-group list-group-flush>" + value + "</ul>";
     console.log(value);
     
 
