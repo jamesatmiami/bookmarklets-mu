@@ -59,7 +59,7 @@ function formatInfo(info) {
   let groupItemE = "</li>";
 
   if (title.length) {
-    value += '<b>=== ' + title + ' ===</b><br>';
+    value += '<b>=== ' + title + ' ===</b>';
 
     if (element) value += groupItemS + 'ELEMENT: ' + element + groupItemE;
 

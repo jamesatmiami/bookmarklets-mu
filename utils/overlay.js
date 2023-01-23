@@ -5,7 +5,7 @@
 import { getScrollOffsets, drag } from './utils';
 export { createOverlay, addDragAndDrop };
 
-var zIndex = 100000;
+var zIndex = 1000;
 
 /*
 *   createOverlay: Create overlay div with size and position based on the
