@@ -11,6 +11,14 @@ window.bootstrap = bootstrap;
 
 (function () {
   initHeadings().run();
+
+  // Initializes tooltips and assigns them a parent container.
+  const tooltipTriggerList = document.querySelectorAll('#bs-bm [data-bs-toggle="tooltip"]');
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {container: '#bs-bm'}));
+
+  // Initializes popovers
+  const popoverTriggerList = document.querySelectorAll('#bs-bm [data-bs-toggle="popover"]');
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {container: '#bs-bm', sanitize: false}));
 })();
 
 function initHeadings () {
@@ -24,7 +32,12 @@ function initHeadings () {
     {selector: "h4", color: "green",  label: "h4"},
     {selector: "h5", color: "gray",   label: "h5"},
     {selector: "h6", color: "brown",  label: "h6"},
-    {selector: "[role=heading][aria-level=1]", color: "navy", label: "h1"}
+    {selector: "[role=heading][aria-level=1]", color: "navy", label: "h1"},
+    {selector: "[role=heading][aria-level=2]", color: "olive", label: "h2"},
+    {selector: "[role=heading][aria-level=3]", color: "purple", label: "h3"},
+    {selector: "[role=heading][aria-level=4]", color: "green", label: "h4"},
+    {selector: "[role=heading][aria-level=5]", color: "gray", label: "h5"},
+    {selector: "[role=heading][aria-level=6]", color: "brown", label: "h6"},
   ];
 
   let selectors = targetList.map(function (tgt) {return tgt.selector;}).join(', ');
