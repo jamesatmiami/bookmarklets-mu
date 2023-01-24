@@ -12,6 +12,14 @@ window.bootstrap = bootstrap;
 
 (function () {
   initLandmarks().run();
+
+  // Initializes tooltips and assigns them a parent container.
+  const tooltipTriggerList = document.querySelectorAll('#bs-bm [data-bs-toggle="tooltip"]');
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {container: '#bs-bm'}));
+
+  // Initializes popovers
+  const popoverTriggerList = document.querySelectorAll('#bs-bm [data-bs-toggle="popover"]');
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {container: '#bs-bm', sanitize: false}));
 })();
 
 function initLandmarks () {

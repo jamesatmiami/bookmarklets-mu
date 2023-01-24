@@ -11,6 +11,14 @@ window.bootstrap = bootstrap;
 
 (function () {
   initImages().run();
+
+  // Initializes tooltips and assigns them a parent container.
+  const tooltipTriggerList = document.querySelectorAll('#bs-bm [data-bs-toggle="tooltip"]');
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {container: '#bs-bm'}));
+
+  // Initializes popovers
+  const popoverTriggerList = document.querySelectorAll('#bs-bm [data-bs-toggle="popover"]');
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {container: '#bs-bm', sanitize: false}));
 })();
 
 function initImages () {
@@ -20,7 +28,8 @@ function initImages () {
   let targetList = [
     {selector: "area", color: "teal",   label: "area"},
     {selector: "img",  color: "olive",  label: "img"},
-    {selector: "svg",  color: "purple", label: "svg"}
+    {selector: "svg",  color: "purple", label: "svg"},
+    {selector: "[role=img]",  color: "olive",  label: "img"}
   ];
 
   let selectors = targetList.map(function (tgt) {return tgt.selector;}).join(', ');
