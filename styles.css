@@ -17,6 +17,8 @@ div.oaa-element-overlay > div {
 
 div.oaa-element-overlay > a {
   text-decoration: none !important;
+  font-family    : arial, helvetica, sans-serif !important;
+  font-size      : 15px !important;
 }
 
 div.oaa-element-overlay > div:hover {
