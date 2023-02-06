@@ -1,6 +1,6 @@
 # bookmarklets-library
 
-To install the bookmarklets, please visit the [Accessibility Bookmarklets website](https://accessibility-bookmarklets.org).
+To install the bookmarklets, please visit the [Accessibility Bookmarklets website](https://jamesatmiami.github.io/bookmarklets-mu/).
 
 A bookmarklet is a JavaScript snippet that can be run within a web browser and that typically performs an action related to the currently
 loaded web page.
