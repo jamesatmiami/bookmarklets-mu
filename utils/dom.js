@@ -128,7 +128,7 @@ function addNodes (params) {
         labelNode.setAttribute('data-bs-html', "true");
 
         labelNode.setAttribute('data-bs-title', formatInfo(info));
-        $(labelNode).html("<a href='#' data-bs-toggle='popover' data-bs-html='true' data-bs-title='" + info.title + "' data-bs-content='" + formatInfo(info) + "'>" + labelNode.innerHTML + "</a>");
+        $(labelNode).html("<a href='#' class='border' data-bs-toggle='popover' data-bs-html='true' data-bs-title='" + info.title + "' data-bs-content='" + formatInfo(info) + "'>" + labelNode.innerHTML + "</a>");
 
         $("#bs-bm").append(overlayNode);
         counter += 1;
