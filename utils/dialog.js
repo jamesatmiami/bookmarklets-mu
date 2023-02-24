@@ -41,9 +41,7 @@ function createMsgDialog () {;
   let dialog = dialogTop + dialogBody + dialogBottom;
   $('#bs-bm').append(dialog);
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const dialog = new bootstrap.Modal('#a11lyMsgDialog');
-  });
+
 
   return dialog;
 }
@@ -77,9 +75,11 @@ MessageDialog.prototype.show = function (title, message) {
   
   $('#a11yDialogTitle').text(title);
   $("#a11yDialogBody").html(message);
-  const dialogEl = document.getElementById('a11yMsgDialog');
-  dialogEl.show();
-
+  document.addEventListener('DOMContentLoaded', () => {
+    const dialog = new bootstrap.Modal('#a11lyMsgDialog');
+    dialog.show();
+    
+  });
 };
 
 /*
