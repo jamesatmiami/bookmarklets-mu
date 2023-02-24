@@ -40,7 +40,11 @@ function createMsgDialog () {;
 
   let dialog = dialogTop + dialogBody + dialogBottom;
   $('#bs-bm').append(dialog);
-  const dialogEl = new bootstrap.Modal('#a11lyMsgDialog');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const dialog = new bootstrap.Modal('#a11lyMsgDialog');
+  });
+
   return dialog;
 }
 
@@ -68,12 +72,13 @@ MessageDialog.prototype.show = function (title, message) {
   let h2, div;
 
   if (!window[MSG_DIALOG])
-    window[MSG_DIALOG] = createMsgDialog(this.CSS_CLASS, event => this.hide());
+    window[MSG_DIALOG] = createMsgDialog();
 
   
   $('#a11yDialogTitle').text(title);
   $("#a11yDialogBody").html(message);
-  
+  const dialogEl = document.getElementById('a11yMsgDialog');
+  dialogEl.show();
 
 };
 
