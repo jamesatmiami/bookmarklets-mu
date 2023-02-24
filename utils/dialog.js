@@ -40,7 +40,7 @@ function createMsgDialog () {;
 
   let dialog = dialogTop + dialogBody + dialogBottom;
   $('#bs-bm').append(dialog);
-
+  const dialogEl = new bootstrap.Modal('#a11lyMsgDialog');
   return dialog;
 }
 
@@ -73,7 +73,7 @@ MessageDialog.prototype.show = function (title, message) {
   
   $('#a11yDialogTitle').text(title);
   $("#a11yDialogBody").html(message);
-  const dialog = new bootstrap.Modal('#a11lyMsgDialog');
+  
 
 };
 
