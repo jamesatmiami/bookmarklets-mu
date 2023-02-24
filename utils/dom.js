@@ -144,7 +144,6 @@ function addNodes (params) {
 *   to remove all instances of the overlay nodes.
 */
 function removeNodes (cssClass) {
-  document.querySelectorAll('#bs-bm [data-bs-toggle="popover"]').dispose();
   let selector = "div." + cssClass;
   let elements = document.querySelectorAll(selector);
   Array.prototype.forEach.call(elements, function (element) {
