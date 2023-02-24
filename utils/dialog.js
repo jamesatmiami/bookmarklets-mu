@@ -48,7 +48,8 @@ function createMsgDialog () {;
 *   deleteMsgDialog: Use reference to delete message dialog.
 */
 function deleteMsgDialog (dialog) {
-  if (dialog) dialog.dispose();
+  const dialogEl = document.getElementById('a11yMsgDialog');
+  if (dialog) dialogEl.dispose();
 }
 
 /*
