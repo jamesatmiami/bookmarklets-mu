@@ -26,14 +26,21 @@ export { MessageDialog };
 *   a bookmarklet.
 */
 function createMsgDialog () {;
-  dialog.className = cssClass;
+  // Checks if node parent container exists already, and creates it if not.
+  if (!($("#bs-bm").length)) {
+    let el = document.createElement('div');
+    el.setAttribute('class', 'bootstrap-bm');
+    el.setAttribute('id', 'bs-bm');
+    document.body.appendChild(el);
+  }
   
   let dialogTop = '<div class="modal fade" id="a11yMsgDialog" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header">';
   let dialogBody = '<h1 class="modal-title fs-5" id="a11yDialogTitle">Modal title</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"></div><div class="modal-footer" id="a11yDialogBody"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Save changes</button>';
   let dialogBottom = '</div></div></div></div>';
 
   dialog = dialogTop + dialogBody + dialogBottom;
-  document.body.appendChild(dialog);
+  $('#bs-bm').append(dialog);
+
   return dialog;
 }
 
