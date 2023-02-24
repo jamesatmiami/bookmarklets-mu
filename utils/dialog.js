@@ -5,36 +5,34 @@
 import { getScrollOffsets } from './utils';
 export { MessageDialog };
 
-/*
-*   setBoxGeometry: Set the width and position of message dialog based on
-*   the width of the browser window. Called by functions resizeMessage and
-*   createMsgOverlay.
-*/
-function setBoxGeometry (dialog) {
-  let width  = window.innerWidth / 3.2;
-  let left   = window.innerWidth / 2 - width / 2;
-  let scroll = getScrollOffsets();
+// /*
+// *   setBoxGeometry: Set the width and position of message dialog based on
+// *   the width of the browser window. Called by functions resizeMessage and
+// *   createMsgOverlay.
+// */
+// function setBoxGeometry (dialog) {
+//   let width  = window.innerWidth / 3.2;
+//   let left   = window.innerWidth / 2 - width / 2;
+//   let scroll = getScrollOffsets();
 
-  dialog.style.width = width + "px";
-  dialog.style.left  = (scroll.x + left) + "px";
-  dialog.style.top   = (scroll.y + 30) + "px";
-}
+//   dialog.style.width = width + "px";
+//   dialog.style.left  = (scroll.x + left) + "px";
+//   dialog.style.top   = (scroll.y + 30) + "px";
+// }
 
 /*
 *   createMsgDialog: Construct and position the message dialog whose
 *   purpose is to alert the user when no target elements are found by
 *   a bookmarklet.
 */
-function createMsgDialog (cssClass, handler) {
-  let dialog = document.createElement("div");
-  let button  = document.createElement("button");
-
+function createMsgDialog () {;
   dialog.className = cssClass;
-  setBoxGeometry(dialog);
+  
+  let dialogTop = '<div class="modal fade" id="a11yMsgDialog" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header">';
+  let dialogBody = '<h1 class="modal-title fs-5" id="a11yDialogTitle">Modal title</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"></div><div class="modal-footer" id="a11yDialogBody"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Save changes</button>';
+  let dialogBottom = '</div></div></div></div>';
 
-  button.onclick = handler;
-
-  dialog.appendChild(button);
+  dialog = dialogTop + dialogBody + dialogBottom;
   document.body.appendChild(dialog);
   return dialog;
 }
@@ -43,7 +41,7 @@ function createMsgDialog (cssClass, handler) {
 *   deleteMsgDialog: Use reference to delete message dialog.
 */
 function deleteMsgDialog (dialog) {
-  if (dialog) document.body.removeChild(dialog);
+  if (dialog) dialog.dispose();
 }
 
 /*
@@ -64,13 +62,11 @@ MessageDialog.prototype.show = function (title, message) {
   if (!window[MSG_DIALOG])
     window[MSG_DIALOG] = createMsgDialog(this.CSS_CLASS, event => this.hide());
 
-  h2 = document.createElement("h2");
-  h2.innerHTML = title;
-  window[MSG_DIALOG].appendChild(h2);
+  
+  $('#a11yDialogTitle').text(title);
+  $("#a11yDialogBody").html(message);
+  const dialog = new bootstrap.Modal('#myModal');
 
-  div = document.createElement("div");
-  div.innerHTML = message;
-  window[MSG_DIALOG].appendChild(div);
 };
 
 /*
