@@ -51,7 +51,7 @@ function createMsgDialog () {;
 */
 function deleteMsgDialog (dialog) {
   const dialogEl = document.getElementById('a11yMsgDialog');
-  if (dialog) dialogEl.dispose();
+  if (dialog) dialogEl.hide();
 }
 
 /*
