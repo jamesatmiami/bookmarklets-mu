@@ -77,7 +77,9 @@ MessageDialog.prototype.show = function (title, message) {
   $("#a11yDialogBody").html(message);
   console.log("Dialog shown");
   const dialog = new bootstrap.Modal('#a11lyMsgDialog');
-  dialog.show();
+  $(function () {
+    $('#a11lyMsgDialog').modal();
+  })
   console.log("Dialog shown");
 };
 
