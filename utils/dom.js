@@ -25,9 +25,9 @@ export {
 *   of its ancestors has properties set that affect its visibility. Called
 *   by addNodes function.
 */
-function isVisible (element) {
+function isVisible(element) {
 
-  function isVisibleRec (el) {
+  function isVisibleRec(el) {
     if (el.nodeType === Node.DOCUMENT_NODE) return true;
 
     let computedStyle = window.getComputedStyle(el, null);
@@ -37,7 +37,7 @@ function isVisible (element) {
     let ariaHidden = el.getAttribute('aria-hidden');
 
     if ((display === 'none') || (visibility === 'hidden') ||
-        (hidden !== null) || (ariaHidden === 'true')) {
+      (hidden !== null) || (ariaHidden === 'true')) {
       return false;
     }
     return isVisibleRec(el.parentNode);
@@ -51,7 +51,7 @@ function isVisible (element) {
 *   number of its child elements with tagName equal to one of the values
 *   in the tagNames array.
 */
-function countChildrenWithTagNames (element, tagNames) {
+function countChildrenWithTagNames(element, tagNames) {
   let count = 0;
 
   let child = element.firstElementChild;
@@ -67,7 +67,7 @@ function countChildrenWithTagNames (element, tagNames) {
 *   isDescendantOf: Determine whether element is a descendant of any
 *   element in the DOM with a tagName in the list of tagNames.
 */
-function isDescendantOf (element, tagNames) {
+function isDescendantOf(element, tagNames) {
   if (typeof element.closest === 'function') {
     return tagNames.some(name => element.closest(name) !== null);
   }
@@ -78,7 +78,7 @@ function isDescendantOf (element, tagNames) {
 *   hasParentWithName: Determine whether element has a parent with
 *   tagName in the list of tagNames.
 */
-function hasParentWithName (element, tagNames) {
+function hasParentWithName(element, tagNames) {
   let parentTagName = element.parentElement.tagName.toLowerCase();
   if (parentTagName) {
     return tagNames.some(name => parentTagName === name);
@@ -92,21 +92,50 @@ function hasParentWithName (element, tagNames) {
 *   Optionally, if getInfo is specified, add tooltip information;
 *   if dndFlag is set, add drag-and-drop functionality.
 */
-function addNodes (params) {
+function addNodes(params) {
   let targetList = params.targetList,
-      cssClass = params.cssClass,
-      getInfo = params.getInfo,
-      evalInfo = params.evalInfo,
-      dndFlag = params.dndFlag;
+    cssClass = params.cssClass,
+    getInfo = params.getInfo,
+    evalInfo = params.evalInfo,
+    dndFlag = params.dndFlag;
   let counter = 0;
 
   // Checks if node parent container exists already, and creates it if not.
   if (!($("#bs-bm").length)) {
     let el = document.createElement('div');
-    el.setAttribute('class', 'bootstrap-bm');
     el.setAttribute('id', 'bs-bm');
     document.body.appendChild(el);
+    const shadowRoot = document.querySelector("#bs-bm").attachShadow({ mode: "open" });
+
+    const pageStyle = document.createElement("link");
+    pageStyle.setAttribute("rel", "stylesheet");
+    pageStyle.setAttribute("href", "https://jamesatmiami.github.io/bookmarklets-mu/styles.css");
+
+    const btstrp = document.createElement("link");
+    btstrp.setAttribute("rel", "stylesheet");
+    btstrp.setAttribute("href", "https://jamesatmiami.github.io/bookmarklets-mu/bootstrap-bm.css");
+    const jq = document.createElement("script");
+    jq.setAttribute("src", "https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js");
+
+    const popperSrc = document.createElement("script");
+    popperSrc.setAttribute("src", "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js");
+
+    const btstrpjs = document.createElement("script");
+    btstrpjs.setAttribute("src", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js");
+
+    shadowRoot.appendChild(pageStyle);
+    shadowRoot.appendChild(btstrp);
+    shadowRoot.appendChild(jq);
+    shadowRoot.appendChild(popperSrc);
+    shadowRoot.appendChild(btstrpjs);
+
+    const div = document.createElement("div");
+    div.classList.add("bootstrap-bm");
+
+    shadowRoot.appendChild(div);
   }
+
+  const bsBM = document.querySelector("#bs-bm").shadowRoot.querySelector(".bootstrap-bm");
 
   targetList.forEach(function (target) {
     // Collect elements based on selector defined for target
@@ -123,30 +152,29 @@ function addNodes (params) {
         let boundingRect = element.getBoundingClientRect();
         let overlayNode = createOverlay(target, boundingRect, cssClass);
         if (dndFlag) addDragAndDrop(overlayNode);
-        let labelNode = overlayNode.firstChild;
+        const labelNode = overlayNode.firstChild;
         labelNode.setAttribute('data-bs-toggle', "tooltip");
         labelNode.setAttribute('data-bs-html', "true");
-
         labelNode.setAttribute('data-bs-title', formatInfo(info));
         $(labelNode).html("<a href='#' data-bs-toggle='popover' data-bs-html='true' data-bs-title='" + info.title + "' data-bs-content='" + formatInfo(info) + "'>" + labelNode.innerHTML + "</a>");
-
-        $("#bs-bm").append(overlayNode);
+        bsBM.appendChild(overlayNode);
         counter += 1;
       }
     });
   });
   return counter;
-  };
-  
+};
+
 
 /*
 *   removeNodes: Use the unique CSS class name supplied to addNodes
 *   to remove all instances of the overlay nodes.
 */
-function removeNodes (cssClass) {
+function removeNodes(cssClass) {
+  const shadowRoot = document.querySelector("#bs-bm").shadowRoot;
   let selector = "div." + cssClass;
-  let elements = document.querySelectorAll(selector);
-  Array.prototype.forEach.call(elements, function (element) {
-    document.querySelector("#bs-bm").removeChild(element);
-  });
+  let elements = shadowRoot.querySelectorAll(selector);
+  for (let el of elements) {
+    shadowRoot.removeChild(el);
+  }
 }
