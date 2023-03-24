@@ -4,6 +4,10 @@
 
 import { getScrollOffsets } from './utils';
 export { MessageDialog };
+import $ from 'jquery';
+window.jQuery = window.$ = require('jquery');
+import * as bootstrap from 'bootstrap';
+window.bootstrap = bootstrap;
 
 // /*
 // *   setBoxGeometry: Set the width and position of message dialog based on
