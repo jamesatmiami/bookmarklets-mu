@@ -38,8 +38,8 @@ function createMsgDialog () {;
     document.body.appendChild(el);
   }
 
-  let dialogTop = '<div class="modal fade"  data-bs-backdrop="false" id="a11yMsgDialog" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header">';
-  let dialogBody = '<h1 class="modal-title fs-5" id="a11yDialogTitle">Modal title</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"></div><div class="modal-footer" id="a11yDialogBody"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Save changes</button>';
+  let dialogTop = '<div class="modal fade"  data-bs-backdrop="false" id="a11yMsgDialog" tabindex="-1" aria-hidden="true"><div class="modal-dialog"><div class="modal-content" id="a11yDialogBody"><div class="modal-header">';
+  let dialogBody = '<h1 class="modal-title fs-5" id="a11yDialogTitle">Modal title</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Save changes</button>';
   let dialogBottom = '</div></div></div></div>';
 
   let dialog = dialogTop + dialogBody + dialogBottom;
