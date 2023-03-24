@@ -54,7 +54,7 @@ function createMsgDialog () {;
 *   deleteMsgDialog: Use reference to delete message dialog.
 */
 function deleteMsgDialog (dialog) {
-  const dialogEl = document.getElementById('a11yMsgDialog');
+  const dialogEl = bootstrap.Modal.getInstance('#a11yMsgDialog');
   if (dialog) dialogEl.hide();
 }
 
