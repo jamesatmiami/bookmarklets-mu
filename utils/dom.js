@@ -86,6 +86,15 @@ function hasParentWithName(element, tagNames) {
   return false;
 }
 
+const popOverState = {
+  landmarks: [],
+  headings: [],
+  lists: [],
+  images: [],
+  forms: [],
+  interactive: []
+}
+
 /*
 *   addNodes: Use targetList to generate nodeList of elements and to
 *   each of these, add an overlay with a unique CSS class name.
@@ -100,6 +109,10 @@ function addNodes(params) {
     dndFlag = params.dndFlag;
   let counter = 0;
 
+  const appName = params.appName.toLowerCase();
+
+  console.log(appName);
+
   // Checks if node parent container exists already, and creates it if not.
   if (!($("#bs-bm").length)) {
     let el = document.createElement('div');
@@ -109,24 +122,20 @@ function addNodes(params) {
 
     const pageStyle = document.createElement("link");
     pageStyle.setAttribute("rel", "stylesheet");
-    pageStyle.setAttribute("href", "https://jamesatmiami.github.io/bookmarklets-mu/styles.css");
+    pageStyle.setAttribute("href", "http://127.0.0.1:5500/styles.css");
 
     const btstrp = document.createElement("link");
     btstrp.setAttribute("rel", "stylesheet");
-    btstrp.setAttribute("href", "https://jamesatmiami.github.io/bookmarklets-mu/bootstrap-bm.css");
+    btstrp.setAttribute("href", "http://127.0.0.1:5500/bootstrap-bm.css");
     const jq = document.createElement("script");
     jq.setAttribute("src", "https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js");
 
-    const popperSrc = document.createElement("script");
-    popperSrc.setAttribute("src", "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js");
-
     const btstrpjs = document.createElement("script");
-    btstrpjs.setAttribute("src", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js");
+    btstrpjs.setAttribute("src", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js");
 
     shadowRoot.appendChild(pageStyle);
     shadowRoot.appendChild(btstrp);
     shadowRoot.appendChild(jq);
-    shadowRoot.appendChild(popperSrc);
     shadowRoot.appendChild(btstrpjs);
 
     const div = document.createElement("div");
@@ -158,6 +167,7 @@ function addNodes(params) {
         labelNode.setAttribute('data-bs-title', formatInfo(info));
         $(labelNode).html("<a href='#' data-bs-toggle='popover' data-bs-html='true' data-bs-title='" + info.title + "' data-bs-content='" + formatInfo(info) + "'>" + labelNode.innerHTML + "</a>");
         bsBM.appendChild(overlayNode);
+        popOverState[appName].push(overlayNode);
         counter += 1;
       }
     });
@@ -174,7 +184,8 @@ function removeNodes(cssClass) {
   const shadowRoot = document.querySelector("#bs-bm").shadowRoot;
   let selector = "div." + cssClass;
   let elements = shadowRoot.querySelectorAll(selector);
+  console.log(elements);
   for (let el of elements) {
-    shadowRoot.removeChild(el);
+    shadowRoot.querySelector(".bootstrap-bm").removeChild(el);
   }
 }
